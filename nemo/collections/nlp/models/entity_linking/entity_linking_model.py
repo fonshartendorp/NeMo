@@ -84,8 +84,7 @@ class EntityLinkingModel(NLPModel, Exportable):
         # No hard examples found in batch,
         # shouldn't use this batch to update model weights
         if train_loss == 0:
-            train_loss = None
-            lr = None
+            return None
 
         else:
             lr = self._optimizer.param_groups[0]["lr"]
